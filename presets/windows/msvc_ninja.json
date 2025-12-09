@@ -1,0 +1,58 @@
+{
+	"version": 8,
+	"include": [
+		"windows_base.json"
+	],
+
+	"configurePresets": [
+		{
+			"name": "windows_x86-64_msvc_ninja_base",
+			"inherits": "windows_base",
+			"description": "Tagets Windows x86-64 using MSVC and Ninja",
+			"generator": "Ninja",
+			"hidden": true,
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			},
+			"vendor": {
+				"microsoft.com/VisualStudioSettings/CMake/1.0": {
+					"hostOS": [ "Windows" ]
+				}
+			}
+		},
+
+		{
+			"name": "windows_x86-64_debug_msvc_ninja",
+			"inherits": "windows_x86-64_msvc_ninja_base",
+			"description": "Tagets Windows x86-64(Debug Build) using MSVC and Ninja",
+			"displayName": "Windows x86-64 Debug MSVC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+
+		{
+			"name": "windows_x86-64_profile_msvc",
+			"inherits": "windows_x86-64_msvc_ninja_base",
+			"description": "Tagets Windows x86-64(Profile Build) using MSVC and Ninja",
+			"displayName": "Windows x86-64 Profile MSVC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Profile"
+			}
+		},
+
+		{
+			"name": "windows_x86-64_release_msvc",
+			"inherits": "windows_x86-64_msvc_ninja_base",
+			"description": "Tagets Windows x86-64(Release Build) using MSVC and Ninja",
+			"displayName": "Windows x86-64 Release MSVC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	]
+}

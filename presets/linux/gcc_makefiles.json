@@ -1,0 +1,53 @@
+{
+	"version": 8,
+	"include": [
+		"linux_base.json"
+	],
+
+	"configurePresets": [
+		{
+			"name": "linux_x86-64_gcc_makefiles_base",
+			"inherits": "linux_base",
+			"description": "Tagets Linux x86-64 using GCC and Makefiles",
+			"generator": "Unix Makefiles",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "gcc",
+				"CMAKE_CXX_COMPILER": "g++"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_debug_gcc_makefiles",
+			"inherits": "linux_x86-64_gcc_makefiles_base",
+			"description": "Tagets Linux x86-64(Debug Build) using GCC and Makefiles",
+			"displayName": "Linux x86-64 Debug GCC Makefiles",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_profile_gcc_makefiles",
+			"inherits": "linux_x86-64_gcc_makefiles_base",
+			"description": "Tagets Linux x86-64(Profile Build) using GCC and Makefiles",
+			"displayName": "Linux x86-64 Profile GCC Makefiles",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Profile"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_release_gcc_makefiles",
+			"inherits": "linux_x86-64_gcc_makefiles_base",
+			"description": "Tagets Linux x86-64(Release Build) using GCC and Makefiles",
+			"displayName": "Linux x86-64 Release GCC Makefiles",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	]
+}

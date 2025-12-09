@@ -1,0 +1,53 @@
+{
+	"version": 8,
+	"include": [
+		"linux_base.json"
+	],
+
+	"configurePresets": [
+		{
+			"name": "linux_x86-64_gcc_ninja_base",
+			"inherits": "linux_base",
+			"description": "Tagets Linux x86-64 using GCC and Ninja",
+			"generator": "Ninja",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "gcc",
+				"CMAKE_CXX_COMPILER": "g++"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_debug_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
+			"description": "Tagets Linux x86-64(Debug Build) using GCC and Ninja",
+			"displayName": "Linux x86-64 Debug GCC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_profile_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
+			"description": "Tagets Linux x86-64(Profile Build) using GCC and Ninja",
+			"displayName": "Linux x86-64 Profile GCC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Profile"
+			}
+		},
+
+		{
+			"name": "linux_x86-64_release_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
+			"description": "Tagets Linux x86-64(Release Build) using GCC and Ninja",
+			"displayName": "Linux x86-64 Release GCC Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	]
+}

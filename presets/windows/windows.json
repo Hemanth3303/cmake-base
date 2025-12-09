@@ -1,0 +1,14 @@
+{
+	"version": 8,
+	"include": [
+		"msvc_ninja.json",
+		"mingw-w64_makefiles.json",
+		"clang_makefiles.json",
+		"mingw-w64_ninja.json",
+		"clang_ninja.json"
+	],
+
+	"configurePresets": [
+
+	]
+}

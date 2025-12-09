@@ -1,0 +1,29 @@
+{
+	"version": 8,
+	"include": [
+
+	],
+
+	"configurePresets": [
+		{
+			"name": "linux_base",
+			"description": "Target Linux, Also sets the path when remote connecting to Visual Studio",
+			"hidden": true,
+			"binaryDir": "${sourceDir}/build",
+			"installDir": "${sourceDir}/install",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Linux"
+			},
+			"vendor": {
+				"microsoft.com/VisualStudioSettings/CMake/1.0": {
+					"hostOS": [ "Linux" ]
+				},
+				"microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+					"sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+				}
+			}
+		}
+	]
+}

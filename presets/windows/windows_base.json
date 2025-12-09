@@ -1,0 +1,21 @@
+{
+	"version": 8,
+	"include": [
+
+	],
+
+	"configurePresets": [
+		{
+			"name": "windows_base",
+			"description": "Target Windows",
+			"hidden": true,
+			"binaryDir": "${sourceDir}/build",
+			"installDir": "${sourceDir}/install",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			}
+		}
+	]
+}

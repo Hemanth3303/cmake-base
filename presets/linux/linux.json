@@ -1,0 +1,13 @@
+{
+	"version": 8,
+	"include": [
+		"gcc_makefiles.json",
+		"clang_makefiles.json",
+		"gcc_ninja.json",
+		"clang_ninja.json"
+	],
+
+	"configurePresets": [
+
+	]
+}

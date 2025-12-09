@@ -1,0 +1,54 @@
+{
+	"version": 8,
+	"include": [
+		"windows_base.json"
+	],
+
+	"configurePresets": [
+		{
+			"name": "windows_x86-64_mingw-w64_ninja_base",
+			"inherits": "windows_base",
+			"description": "Tagets Windows x86-64 using MinGW-w64 and Ninja",
+			"generator": "Ninja",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "gcc",
+				"CMAKE_CXX_COMPILER": "g++"
+			}
+		},
+
+
+		{
+			"name": "windows_x86-64_debug_mingw-w64_ninja",
+			"inherits": "windows_x86-64_mingw-w64_ninja_base",
+			"description": "Tagets Windows x86-64(Debug Build) using MinGW-w64 and Ninja",
+			"displayName": "Windows x86-64 Debug MinGW-w64 Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+
+		{
+			"name": "windows_x86-64_profile_mingw-w64_ninja",
+			"inherits": "windows_x86-64_mingw-w64_ninja_base",
+			"description": "Tagets Windows x86-64(Profile Build) using MinGW-w64 and Ninja",
+			"displayName": "Windows x86-64 Profile MinGW-w64 Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Profile"
+			}
+		},
+
+		{
+			"name": "windows_x86-64_release_mingw-w64_ninja",
+			"inherits": "windows_x86-64_mingw-w64_ninja_base",
+			"description": "Tagets Windows x86-64(Release Build) using MinGW-w64 and Ninja",
+			"displayName": "Windows x86-64 Release MinGW-w64 Ninja",
+			"hidden": false,
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	]
+}

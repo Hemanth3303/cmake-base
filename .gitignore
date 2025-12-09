@@ -1,0 +1,129 @@
+# Build directories
+bin/
+bin-int/
+int/
+build/
+out/
+x64/
+x86/
+Win32/
+Debug/
+Profile/
+Release/
+MinSizeRel/
+RelWithDebInfo/
+Dist/
+Distribution/
+
+# vcpkg
+vcpkg_installed/
+installed/
+
+# Executables
+*.exe
+*.out
+*.app
+*.hex
+
+# Object & Library Files
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.lib
+*.dylib
+*.lai
+*.la
+*.slo
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+cmake_install.cmake
+cmake_uninstall.cmake
+
+# Ninja
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+
+# Prerequisites
+*.d
+
+# Fortran module files
+*.mod
+*.smod
+
+# Visual Studio
+.vs/
+*.vcxproj*
+*.sln
+*.sdf
+*.suo
+*.ncb
+*.opensdf
+*.cachefile
+*.user
+*.ipch
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+*.xcuserdata/
+*.xcconfig
+*.pbxuser
+*.mode1v3
+*.mode2v3
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Code::Blocks
+*.cbp
+*.layout
+*.depend
+*.objs/
+
+# Eclipse CDT
+.project
+.cproject
+.settings/
+.metadata/
+
+# Qt Creator
+*.pro.user
+*.pri.user
+*.qbs.user
+*.qbs.user.*
+*.creator.user
+*.creator.user.*
+
+# Dev-C++
+*.dev
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# OS / editor miscellany
+.DS_Store
+Thumbs.db
+
+# Makefiles
+Makefile
+makefile
