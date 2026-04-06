@@ -8,7 +8,7 @@
 		{
 			"name": "linux_x86-64_gcc_ninja_base",
 			"inherits": "linux_base",
-			"description": "Tagets Linux x86-64 using GCC and Ninja",
+			"description": "Targets Linux x86-64 using GCC and Ninja",
 			"generator": "Ninja",
 			"hidden": true,
 			"cacheVariables": {
@@ -20,7 +20,7 @@
 		{
 			"name": "linux_x86-64_debug_gcc_ninja",
 			"inherits": "linux_x86-64_gcc_ninja_base",
-			"description": "Tagets Linux x86-64(Debug Build) using GCC and Ninja",
+			"description": "Targets Linux x86-64(Debug Build) using GCC and Ninja",
 			"displayName": "Linux x86-64 Debug GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -31,7 +31,7 @@
 		{
 			"name": "linux_x86-64_profile_gcc_ninja",
 			"inherits": "linux_x86-64_gcc_ninja_base",
-			"description": "Tagets Linux x86-64(Profile Build) using GCC and Ninja",
+			"description": "Targets Linux x86-64(Profile Build) using GCC and Ninja",
 			"displayName": "Linux x86-64 Profile GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -42,7 +42,7 @@
 		{
 			"name": "linux_x86-64_release_gcc_ninja",
 			"inherits": "linux_x86-64_gcc_ninja_base",
-			"description": "Tagets Linux x86-64(Release Build) using GCC and Ninja",
+			"description": "Targets Linux x86-64(Release Build) using GCC and Ninja",
 			"displayName": "Linux x86-64 Release GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {

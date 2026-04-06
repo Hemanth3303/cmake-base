@@ -8,7 +8,7 @@
 		{
 			"name": "windows_x86-64_mingw-w64_makefiles_base",
 			"inherits": "windows_base",
-			"description": "Tagets Windows x86-64 using MinGW-w64 and Makefiles",
+			"description": "Targets Windows x86-64 using MinGW-w64 and Makefiles",
 			"generator": "MinGW Makefiles",
 			"hidden": true,
 			"cacheVariables": {
@@ -20,7 +20,7 @@
 		{
 			"name": "windows_x86-64_debug_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",
-			"description": "Tagets Windows x86-64(Debug Build) using MinGW-w64 and Makefiles",
+			"description": "Targets Windows x86-64(Debug Build) using MinGW-w64 and Makefiles",
 			"displayName": "Windows x86-64 Debug MinGW-w64 Makefiles",
 			"hidden": false,
 			"cacheVariables": {
@@ -31,7 +31,7 @@
 		{
 			"name": "windows_x86-64_profile_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",
-			"description": "Tagets Windows x86-64(Profile Build) using MinGW-w64 and Makefiles",
+			"description": "Targets Windows x86-64(Profile Build) using MinGW-w64 and Makefiles",
 			"displayName": "Windows x86-64 Profile MinGW-w64 Makefiles",
 			"hidden": false,
 			"cacheVariables": {
@@ -42,7 +42,7 @@
 		{
 			"name": "windows_x86-64_release_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",
-			"description": "Tagets Windows x86-64(Release Build) using MinGW-w64 and Makefiles",
+			"description": "Targets Windows x86-64(Release Build) using MinGW-w64 and Makefiles",
 			"displayName": "Windows x86-64 Release MinGW-w64 Makefiles",
 			"hidden": false,
 			"cacheVariables": {

@@ -8,7 +8,7 @@
 		{
 			"name": "linux_x86-64_clang_ninja_base",
 			"inherits": "linux_base",
-			"description": "Tagets Linux x86-64 using Clang and Ninja",
+			"description": "Targets Linux x86-64 using Clang and Ninja",
 			"generator": "Ninja",
 			"hidden": true,
 			"cacheVariables": {
@@ -20,7 +20,7 @@
 		{
 			"name": "linux_x86-64_debug_clang_ninja",
 			"inherits": "linux_x86-64_clang_ninja_base",
-			"description": "Tagets Linux x86-64(Debug Build) using Clang and Ninja",
+			"description": "Targets Linux x86-64(Debug Build) using Clang and Ninja",
 			"displayName": "Linux x86-64 Debug Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -31,7 +31,7 @@
 		{
 			"name": "linux_x86-64_profile_clang_ninja",
 			"inherits": "linux_x86-64_clang_ninja_base",
-			"description": "Tagets Linux x86-64(Profile Build) using Clang and Ninja",
+			"description": "Targets Linux x86-64(Profile Build) using Clang and Ninja",
 			"displayName": "Linux x86-64 Profile Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -42,7 +42,7 @@
 		{
 			"name": "linux_x86-64_release_clang_ninja",
 			"inherits": "linux_x86-64_clang_ninja_base",
-			"description": "Tagets Linux x86-64(Release Build) using Clang and Ninja",
+			"description": "Targets Linux x86-64(Release Build) using Clang and Ninja",
 			"displayName": "Linux x86-64 Release Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {

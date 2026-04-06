@@ -8,7 +8,7 @@
 		{
 			"name": "linux_x86-64_clang_makefiles_base",
 			"inherits": "linux_base",
-			"description": "Tagets Linux x86-64 using Clang and Makefiles",
+			"description": "Targets Linux x86-64 using Clang and Makefiles",
 			"generator": "Unix Makefiles",
 			"hidden": true,
 			"cacheVariables": {
@@ -20,7 +20,7 @@
 		{
 			"name": "linux_x86-64_debug_clang_makefiles",
 			"inherits": "linux_x86-64_clang_makefiles_base",
-			"description": "Tagets Linux x86-64(Debug Build) using Clang and Makefiles",
+			"description": "Targets Linux x86-64(Debug Build) using Clang and Makefiles",
 			"displayName": "Linux x86-64 Debug Clang Makefiles",
 			"hidden": false,
 			"cacheVariables": {
@@ -31,7 +31,7 @@
 		{
 			"name": "linux_x86-64_profile_clang_makefiles",
 			"inherits": "linux_x86-64_clang_makefiles_base",
-			"description": "Tagets Linux x86-64(Profile Build) using Clang and Makefiles",
+			"description": "Targets Linux x86-64(Profile Build) using Clang and Makefiles",
 			"displayName": "Linux x86-64 Profile Clang Makefiles",
 			"hidden": false,
 			"cacheVariables": {
@@ -42,7 +42,7 @@
 		{
 			"name": "linux_x86-64_release_clang_makefiles",
 			"inherits": "linux_x86-64_clang_makefiles_base",
-			"description": "Tagets Linux x86-64(Release Build) using Clang and Makefiles",
+			"description": "Targets Linux x86-64(Release Build) using Clang and Makefiles",
 			"displayName": "Linux x86-64 Release Clang Makefiles",
 			"hidden": false,
 			"cacheVariables": {

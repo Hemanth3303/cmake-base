@@ -9,7 +9,7 @@
 		{
 			"name": "windows_x86-64_clang_ninja_base",
 			"inherits": "windows_base",
-			"description": "Tagets Windows x86-64 using Clang and Ninja",
+			"description": "Targets Windows x86-64 using Clang and Ninja",
 			"generator": "Ninja",
 			"hidden": true,
 			"cacheVariables": {
@@ -21,7 +21,7 @@
 		{
 			"name": "windows_x86-64_debug_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",
-			"description": "Tagets Windows x86-64(Debug build) using Clang and Ninja",
+			"description": "Targets Windows x86-64(Debug build) using Clang and Ninja",
 			"displayName": "Windows x86-64 Debug Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -32,7 +32,7 @@
 		{
 			"name": "windows_x86-64_profile_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",
-			"description": "Tagets Windows x86-64(Profile build) using Clang and Ninja",
+			"description": "Targets Windows x86-64(Profile build) using Clang and Ninja",
 			"displayName": "Windows x86-64 Profile Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {
@@ -43,7 +43,7 @@
 		{
 			"name": "windows_x86-64_release_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",
-			"description": "Tagets Windows x86-64(Release build) using Clang and Ninja",
+			"description": "Targets Windows x86-64(Release build) using Clang and Ninja",
 			"displayName": "Windows x86-64 Release Clang Ninja",
 			"hidden": false,
 			"cacheVariables": {
