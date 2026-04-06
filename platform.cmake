@@ -1,0 +1,33 @@
+# Sets CMAKE_BASE_PLATFORM_SEGMENT to os_arch (e.g. windows_x86-64, linux_aarch64)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	set(_cmake_base_os "windows")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	set(_cmake_base_os "linux")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+	set(_cmake_base_os "darwin")
+else()
+	string(TOLOWER "${CMAKE_SYSTEM_NAME}" _cmake_base_os)
+	string(REPLACE " " "_" _cmake_base_os "${_cmake_base_os}")
+endif()
+
+string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _cmake_base_proc)
+
+if(_cmake_base_proc MATCHES "^(amd64|x86_64)$")
+	set(_cmake_base_arch "x86-64")
+elseif(_cmake_base_proc MATCHES "^(i386|i686|x86)$")
+	set(_cmake_base_arch "x86-32")
+elseif(_cmake_base_proc MATCHES "^(arm64|aarch64)$")
+	set(_cmake_base_arch "aarch64")
+elseif(_cmake_base_proc STREQUAL "")
+	set(_cmake_base_arch "unknown")
+else()
+	string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _cmake_base_arch)
+	string(REPLACE "_" "-" _cmake_base_arch "${_cmake_base_arch}")
+endif()
+
+set(CMAKE_BASE_PLATFORM_SEGMENT "${_cmake_base_os}_${_cmake_base_arch}")
+
+unset(_cmake_base_os)
+unset(_cmake_base_arch)
+unset(_cmake_base_proc)
