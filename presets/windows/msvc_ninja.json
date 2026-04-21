@@ -34,7 +34,7 @@
 		},
 
 		{
-			"name": "windows_x86-64_profile_msvc",
+			"name": "windows_x86-64_profile_msvc_ninja",
 			"inherits": "windows_x86-64_msvc_ninja_base",
 			"description": "Targets Windows x86-64(Profile Build) using MSVC and Ninja",
 			"displayName": "Windows x86-64 Profile MSVC Ninja",
@@ -45,7 +45,7 @@
 		},
 
 		{
-			"name": "windows_x86-64_release_msvc",
+			"name": "windows_x86-64_release_msvc_ninja",
 			"inherits": "windows_x86-64_msvc_ninja_base",
 			"description": "Targets Windows x86-64(Release Build) using MSVC and Ninja",
 			"displayName": "Windows x86-64 Release MSVC Ninja",
