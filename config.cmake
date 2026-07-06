@@ -1,8 +1,9 @@
 set(CMAKE_CONFIGURATION_TYPES "Debug;Profile;Release" CACHE STRING "Limited Configs" FORCE)
 
 if(NOT CMAKE_BUILD_TYPE)
-	set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Build type" FORCE)
+	set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Build type")
 endif()
+set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS Debug Profile Release)
 
 include("${CMAKE_CURRENT_LIST_DIR}/platform.cmake")
 
@@ -15,9 +16,18 @@ if(MSVC)
 	add_compile_options(/EHsc)
 endif()
 
+# Profile = RelWithDebInfo (optimized, debug symbols, NDEBUG)
+set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_RELWITHDEBINFO}")
+set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+set(CMAKE_EXE_LINKER_FLAGS_PROFILE "${CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO}")
+set(CMAKE_SHARED_LINKER_FLAGS_PROFILE "${CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO}")
+set(CMAKE_MODULE_LINKER_FLAGS_PROFILE "${CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO}")
+
 # Multi-config safe: $<CONFIG>. Layout: build/<os_arch>/<Config>/
 set(_cmake_base_out "${CMAKE_BINARY_DIR}/${CMAKE_BASE_PLATFORM_SEGMENT}/$<CONFIG>")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${_cmake_base_out}")
+set(CMAKE_PDB_OUTPUT_DIRECTORY "${_cmake_base_out}")
+set(CMAKE_COMPILE_PDB_OUTPUT_DIRECTORY "${_cmake_base_out}")
 unset(_cmake_base_out)
