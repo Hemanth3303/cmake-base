@@ -6,7 +6,17 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{c,h,cpp,hpp}]
+[*.{c,h,cpp,hpp,cxx,hxx,c++,h++}]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+
+[*.cmake,CMakeLists.txt]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+
+[*.json]
 indent_style = tab
 tab_width = 4
 indent_size = 4
