@@ -8,6 +8,7 @@ Base configs and presets for C and C++ projects using CMake.
 - on each target, pick a prefix (e.g. `APPLICATION`, `GAME`) and call:
   - `cmake_base_target_platform_definitions(target prefix)`
   - `cmake_base_target_architecture_definitions(target prefix)`
+  - `cmake_base_apply_sanitizers(target SANITIZERS <...> CONFIGS <...>)` — apply sanitizer compile/link flags per config; incompatible combinations are fatal at configure time; unsupported sanitizers on the current compiler warn and are skipped
 - add config macros per target:
   - Debug: `{PREFIX}_DEBUG_BUILD`, `DEBUG`
   - Profile: `{PREFIX}_PROFILE_BUILD`, `NDEBUG`
@@ -16,6 +17,7 @@ Base configs and presets for C and C++ projects using CMake.
 - use `cmake --list-presets` to see available presets, then `cmake --preset=<name>` and `cmake --build build`
 
 ## Info
+- **Build configs** — defined once as `CMAKE_BASE_CONFIGS` in `config.cmake` (Debug, Profile, Release).
 - **Debug** — slow, full debug info. Use `{PREFIX}_DEBUG_BUILD` / `DEBUG` in code.
 - **Profile** — optimized with debug symbols (same idea as RelWithDebInfo). Use `{PREFIX}_PROFILE_BUILD` / `NDEBUG`. Mainly for instrumentation + logging.
 - **Release** — full optimization, no debug symbols. Use `{PREFIX}_RELEASE_BUILD` / `NDEBUG`. Strip diagnostics in code.
