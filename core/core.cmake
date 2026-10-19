@@ -1,4 +1,6 @@
 # The main file
+# Include this file only after project is defined
+
 set(CMAKE_BASE_CONFIGS Debug Profile Release)
 
 set(CMAKE_CONFIGURATION_TYPES "${CMAKE_BASE_CONFIGS}" CACHE STRING "Limited Configs" FORCE)
@@ -25,7 +27,7 @@ set(CMAKE_STATIC_LINKER_FLAGS_PROFILE "${CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINF
 set(CMAKE_MODULE_LINKER_FLAGS_PROFILE "${CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO}")
 
 # Multi-config safe: $<CONFIG>. Layout: build/<os_arch_compiler>/<Config>/
-set(_cmake_base_out "${CMAKE_BINARY_DIR}/${CMAKE_BASE_PLATFORM_SEGMENT}/$<CONFIG>")
+set(_cmake_base_out "${CMAKE_BINARY_DIR}/${_cmake_base_target_platform}/$<CONFIG>")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${_cmake_base_out}")

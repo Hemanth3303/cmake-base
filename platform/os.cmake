@@ -1,4 +1,5 @@
-# Detect TARGET OS(Windowm Linux, Darwin, etc)
+# Detects TARGET OS(Windowm Linux, Darwin, etc)
+# Note: This is NOT the HOST OS(CMAKE_HOST_SYSTEM_NAME)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	set(_cmake_base_target_os "windows")
@@ -26,6 +27,10 @@ else()
 	)
 endif()
 
+# Example usage:
+#	cmake_base_target_os_definitions(Application MY_COOL_APP)
+# This defines something like MY_COOL_APP_OS_LINUX=1 for the
+# cmake target(executable, library, etc) named Application.
 function(cmake_base_target_os_definitions target prefix)
 	if(NOT prefix MATCHES "^[A-Za-z_][A-Za-z0-9_]*$")
 		message(

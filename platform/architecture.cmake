@@ -1,4 +1,5 @@
-# Detect TARGET Architecture (x86, ARM, etc)
+# Detects TARGET Architecture (x86, ARM, etc)
+# Note: This is NOT the HOST Architecture(CMAKE_HOST_SYSTEM_PROCESSOR)
 
 string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _cmake_base_processor)
 
@@ -36,7 +37,7 @@ endif()
 
 # Example usage:
 #	cmake_base_target_platform_definitions(Application MY_COOL_APP)
-# This generates something like MY_COOL_APP_ARCHITECTURE_X86_64 for the
+# This defines something like MY_COOL_APP_ARCHITECTURE_X86_64=1 for the
 # cmake target(executable, library, etc) named Application.
 function(cmake_base_target_architecture_definitions target prefix)
 	if(NOT prefix MATCHES "^[A-Za-z_][A-Za-z0-9_]*$")
