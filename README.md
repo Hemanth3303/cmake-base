@@ -7,8 +7,8 @@ Base configs and presets for C and C++ projects using CMake.
 - include `cmake/base/presets/windows/windows.json` and `cmake/base/presets/linux/linux.json` in `{project_root}/CMakePresets.json`
 - for each target after the target is defined, source files are set and properties are defined, do the following:
   - first pick a prefix (e.g. `APPLICATION`, `GAME`) then call the given functions in order
-  - `cmake_base_configure_target(target)`, this sets some common defines like DEBUG/NDEBUG, win32 defines, msvc stuff to enforce standard C++ conformance, linker flags, etc. [call only once]
-  - `cmake_base_apply_target_definitions(target prefix)`, this creates defines PREFIX and APP_<Config>_BUILD. can be called multiple times, as same target can have multipe prefixes. example, a target can be APPPLICATION_DEBUG_BUILD as well as ENGINE_CLIENT_DEBUG_BUILD at the same time.
+  - `cmake_base_configure_target(target)`, this sets some common defines like `DEBUG`/`NDEBUG`, win32 defines, msvc stuff to enforce standard C++ conformance, gcc/clang compiler flag and linker flags, etc. [call only once]
+  - `cmake_base_apply_target_definitions(target prefix)`, this creates defines `PREFIX` and `APP_<Config>_BUILD`. can be called multiple times, as same target can have multipe prefixes. example, a target can be `GAME_DEBUG_BUILD`, `ENGINE_CLIENT_DEBUG_BUILD` and `NETWORK_CLIENT_DEBUG_BUILD` at the same time.
   - `cmake_base_apply_os_definitions_to_target(target prefix)` [call only once]
   - `cmake_base_apply_architecture_definitions_to_target(target prefix)` [call only once]
   - `cmake_base_apply_compiler_definitions_to_target(target prefix)` [call only once]
