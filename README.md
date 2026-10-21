@@ -5,15 +5,14 @@ Base configs and presets for C and C++ projects using CMake.
 - clone as a submodule to `{project_root}/cmake/base`
 - include `cmake/base/core/core.cmake` and `cmake/base/utils/print_vars.cmake` in `{project_root}/CMakeLists.txt` after `project()` is defined
 - include `cmake/base/presets/windows/windows.json` and `cmake/base/presets/linux/linux.json` in `{project_root}/CMakePresets.json`
-- on each target, pick a prefix (e.g. `APPLICATION`, `GAME`) and call:
-  - `cmake_base_apply_os_definitions_to_target(target prefix)`
-  - `cmake_base_apply_architecture_definitions_to_target(target prefix)`
-  - `cmake_base_apply_compiler_definitions_to_target(target prefix)`
-  - `cmake_base_apply_sanitizers(target SANITIZERS <...> CONFIGS <...>)` — apply sanitizer compile/link flags per config; incompatible combinations are fatal at configure time; unsupported sanitizers on the current compiler warn and are skipped
-- add config macros per target:
-  - Debug: `{PREFIX}_DEBUG_BUILD`, `DEBUG`
-  - Profile: `{PREFIX}_PROFILE_BUILD`, `NDEBUG`
-  - Release: `{PREFIX}_RELEASE_BUILD`, `NDEBUG`
+- for each target after the target is defined, source files are set and properties are defined, do the following:
+  - first pick a prefix (e.g. `APPLICATION`, `GAME`) then call the given functions in order
+  - `cmake_base_configure_target(target)`, this sets some common defines like DEBUG/NDEBUG, win32 defines, msvc stuff to enforce standard C++ conformance, linker flags, etc. [call only once]
+  - `cmake_base_apply_target_definitions(target prefix)`, this creates defines PREFIX and APP_<Config>_BUILD. can be called multiple times, as same target can have multipe prefixes. example, a target can be APPPLICATION_DEBUG_BUILD as well as ENGINE_CLIENT_DEBUG_BUILD at the same time.
+  - `cmake_base_apply_os_definitions_to_target(target prefix)` [call only once]
+  - `cmake_base_apply_architecture_definitions_to_target(target prefix)` [call only once]
+  - `cmake_base_apply_compiler_definitions_to_target(target prefix)` [call only once]
+  - `cmake_base_apply_sanitizers(target SANITIZERS <...> CONFIGS <...>)` [call only once], apply sanitizer compile/link flags per config; incompatible combinations are fatal at configure time; unsupported sanitizers on the current compiler warn and are skipped
 - build output goes to `build/<os>_<arch>_<compiler>/<Config>/` (example: `build/linux_x86_64_gnu-gcc/Profile/Game`)
 - use `cmake --list-presets` to see available presets, then `cmake --preset=<name>` and `cmake --build build`
 
