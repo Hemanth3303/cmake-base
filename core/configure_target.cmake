@@ -25,7 +25,7 @@ function(cmake_base_configure_target target)
 		)
 
 		if(_cmake_base_build_compiler STREQUAL "msvc")
-			target_compile_definitions(
+			target_compile_options(
 				"${target}"
 				PRIVATE
 					/Zc:__cplusplus
