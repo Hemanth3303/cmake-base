@@ -86,8 +86,8 @@ elseif(_cmake_base_build_compiler STREQUAL "clang-cl" AND _cmake_base_target_os 
 	set(_cmake_base_sanitizer_aux_compiler_flags "")
 	set(_cmake_base_sanitizer_aux_linker_flags "")
 
-elseif(_cmake_base_build_compiler STREQUAL "mingw-w64" AND _cmake_base_target_os STREQUAL "windows")
-	set(_cmake_base_sanitizer_family "windows-mingw-w64-unsupported")
+elseif(_cmake_base_build_compiler STREQUAL "mingw-w64-gcc" AND _cmake_base_target_os STREQUAL "windows")
+	set(_cmake_base_sanitizer_family "windows-mingw-w64-gcc-unsupported")
 
 	set(_cmake_base_sanitizer_asan_compiler_flags "")
 	set(_cmake_base_sanitizer_asan_linker_flags "")
@@ -101,8 +101,8 @@ elseif(_cmake_base_build_compiler STREQUAL "mingw-w64" AND _cmake_base_target_os
 	set(_cmake_base_sanitizer_aux_compiler_flags "")
 	set(_cmake_base_sanitizer_aux_linker_flags "")
 
-elseif(_cmake_base_build_compiler STREQUAL "mingw32" AND _cmake_base_target_os STREQUAL "windows")
-	set(_cmake_base_sanitizer_family "windows-mingw32-unsupported")
+elseif(_cmake_base_build_compiler STREQUAL "mingw32-gcc" AND _cmake_base_target_os STREQUAL "windows")
+	set(_cmake_base_sanitizer_family "windows-mingw32-gcc-unsupported")
 
 	set(_cmake_base_sanitizer_asan_compiler_flags "")
 	set(_cmake_base_sanitizer_asan_linker_flags "")
