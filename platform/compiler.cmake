@@ -12,7 +12,18 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "C
 	endif()
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "GNU")
 	if(MINGW)
-		if(CMAKE_CXX_COMPILER_TARGET MATCHES "w64" OR CMAKE_C_COMPILER_TARGET MATCHES "w64")
+		include(CheckCXXSourceCompiles)
+		check_cxx_source_compiles(
+			"
+				#include <_mingw.h>
+				#if !defined(__MINGW64_VERSION_MAJOR)
+					#error Not MinGW-w64
+				#endif
+				int main() { return 0; }
+			"
+			_is_mingw_w64
+		)
+		if(_is_mingw_w64)
 			set(_cmake_base_build_compiler "mingw-w64-gcc")
 		else()
 			set(_cmake_base_build_compiler "mingw32-gcc")
