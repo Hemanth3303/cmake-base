@@ -17,7 +17,7 @@ Base configs and presets for C and C++ projects using CMake.
 - use `cmake --list-presets` to see available presets, then `cmake --preset=<name>` and `cmake --build build`
 
 ## Info
-- **Build configs** — defined once as `CMAKE_BASE_CONFIGS` in `config.cmake` (Debug, Profile, Release).
+- **Build configs** — defined once as `CMAKE_BASE_CONFIGS` in `core/core.cmake` (Debug, Profile, Release).
 - **Debug** — slow, full debug info. Use `{PREFIX}_DEBUG_BUILD` / `DEBUG` in code.
 - **Profile** — optimized with debug symbols (same idea as RelWithDebInfo). Use `{PREFIX}_PROFILE_BUILD` / `NDEBUG`. Mainly for instrumentation + logging.
 - **Release** — full optimization, no debug symbols. Use `{PREFIX}_RELEASE_BUILD` / `NDEBUG`. Strip diagnostics in code.
