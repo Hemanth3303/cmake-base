@@ -120,7 +120,7 @@ function(_cmake_base_apply_aux_flags_for_config target config sanitizer_list)
 		target_compile_options(
 			"${target}"
 			PRIVATE
-			"$<$<CONFIG:${config}>:${_cmake_base_sanitizer_aux_compiler_flags}>"
+				"$<$<CONFIG:${config}>:${_cmake_base_sanitizer_aux_compiler_flags}>"
 		)
 	endif()
 
@@ -128,7 +128,7 @@ function(_cmake_base_apply_aux_flags_for_config target config sanitizer_list)
 		target_link_options(
 			"${target}"
 			PRIVATE
-			"$<$<CONFIG:${config}>:${_cmake_base_sanitizer_aux_linker_flags}>"
+				"$<$<CONFIG:${config}>:${_cmake_base_sanitizer_aux_linker_flags}>"
 		)
 	endif()
 
@@ -144,7 +144,7 @@ function(_cmake_base_sanitizer_apply_delta_for_config target config delta_list)
 			target_compile_options(
 				"${target}"
 				PRIVATE
-				"$<$<CONFIG:${config}>:${_compiler_flags}>"
+					"$<$<CONFIG:${config}>:${_compiler_flags}>"
 			)
 		endif()
 
@@ -152,7 +152,7 @@ function(_cmake_base_sanitizer_apply_delta_for_config target config delta_list)
 			target_link_options(
 				"${target}"
 				PRIVATE
-				"$<$<CONFIG:${config}>:${_linker_flags}>"
+					"$<$<CONFIG:${config}>:${_linker_flags}>"
 			)
 		endif()
 	endforeach()

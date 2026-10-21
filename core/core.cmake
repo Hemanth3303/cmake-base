@@ -13,8 +13,8 @@ endif()
 
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${CMAKE_BASE_CONFIGS})
 
-include("${CMAKE_CURRENT_LIST_DIR}/configure_target.cmake" REQUIRED)
 include("${CMAKE_CURRENT_LIST_DIR}/../platform/platform.cmake" REQUIRED)
+include("${CMAKE_CURRENT_LIST_DIR}/configure_target.cmake" REQUIRED)
 include("${CMAKE_CURRENT_LIST_DIR}/../sanitizers/sanitizers.cmake" REQUIRED)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
