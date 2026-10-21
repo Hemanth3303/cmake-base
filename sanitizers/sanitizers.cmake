@@ -152,7 +152,7 @@ function(_cmake_base_sanitizer_apply_delta_for_config target config delta_list)
 			target_link_options(
 				"${target}"
 				PRIVATE
-				"$<$<CONFIG:${config}>:${_linker_flag}>"
+				"$<$<CONFIG:${config}>:${_linker_flags}>"
 			)
 		endif()
 	endforeach()
