@@ -1,3 +1,8 @@
+# The main file
+# Include this file only after cmake minimum required and project are both called
+
+include_guard()
+
 set(CMAKE_BASE_CONFIGS Debug Profile Release)
 
 set(CMAKE_CONFIGURATION_TYPES "${CMAKE_BASE_CONFIGS}" CACHE STRING "Limited Configs" FORCE)
@@ -5,29 +10,26 @@ set(CMAKE_CONFIGURATION_TYPES "${CMAKE_BASE_CONFIGS}" CACHE STRING "Limited Conf
 if(NOT CMAKE_BUILD_TYPE)
 	set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Build type")
 endif()
+
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${CMAKE_BASE_CONFIGS})
 
-include("${CMAKE_CURRENT_LIST_DIR}/platform.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/sanitizers.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/../platform/platform.cmake" REQUIRED)
+include("${CMAKE_CURRENT_LIST_DIR}/../sanitizers/sanitizers.cmake" REQUIRED)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
-
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-
-if(MSVC)
-	add_compile_options(/EHsc)
-endif()
 
 # Profile = RelWithDebInfo (optimized, debug symbols, NDEBUG)
 set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_RELWITHDEBINFO}")
 set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
 set(CMAKE_EXE_LINKER_FLAGS_PROFILE "${CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO}")
 set(CMAKE_SHARED_LINKER_FLAGS_PROFILE "${CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO}")
+set(CMAKE_STATIC_LINKER_FLAGS_PROFILE "${CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO}")
 set(CMAKE_MODULE_LINKER_FLAGS_PROFILE "${CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO}")
 
-# Multi-config safe: $<CONFIG>. Layout: build/<os_arch>/<Config>/
-set(_cmake_base_out "${CMAKE_BINARY_DIR}/${CMAKE_BASE_PLATFORM_SEGMENT}/$<CONFIG>")
+# Multi-config safe: $<CONFIG>. Layout: build/<os_arch_compiler>/<Config>/
+set(_cmake_base_out "${CMAKE_BINARY_DIR}/${_cmake_base_target_platform}/$<CONFIG>")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${_cmake_base_out}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${_cmake_base_out}")

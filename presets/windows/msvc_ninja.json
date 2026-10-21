@@ -3,7 +3,6 @@
 	"include": [
 		"windows_base.json"
 	],
-
 	"configurePresets": [
 		{
 			"name": "windows_x86-64_msvc_ninja_base",
@@ -17,11 +16,12 @@
 			},
 			"vendor": {
 				"microsoft.com/VisualStudioSettings/CMake/1.0": {
-					"hostOS": [ "Windows" ]
+					"hostOS": [
+						"Windows"
+					]
 				}
 			}
 		},
-
 		{
 			"name": "windows_x86-64_debug_msvc_ninja",
 			"inherits": "windows_x86-64_msvc_ninja_base",
@@ -32,7 +32,6 @@
 				"CMAKE_BUILD_TYPE": "Debug"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_profile_msvc_ninja",
 			"inherits": "windows_x86-64_msvc_ninja_base",
@@ -43,7 +42,6 @@
 				"CMAKE_BUILD_TYPE": "Profile"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_release_msvc_ninja",
 			"inherits": "windows_x86-64_msvc_ninja_base",

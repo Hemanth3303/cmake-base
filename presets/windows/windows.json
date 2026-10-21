@@ -7,8 +7,5 @@
 		"mingw-w64_ninja.json",
 		"clang_ninja.json"
 	],
-
-	"configurePresets": [
-
-	]
+	"configurePresets": []
 }

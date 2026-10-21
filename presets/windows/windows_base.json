@@ -1,9 +1,6 @@
 {
 	"version": 8,
-	"include": [
-
-	],
-
+	"include": [],
 	"configurePresets": [
 		{
 			"name": "windows_base",

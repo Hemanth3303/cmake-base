@@ -3,9 +3,7 @@
 	"include": [
 		"windows_base.json"
 	],
-
 	"configurePresets": [
-
 		{
 			"name": "windows_x86-64_clang_ninja_base",
 			"inherits": "windows_base",
@@ -17,7 +15,6 @@
 				"CMAKE_CXX_COMPILER": "clang++"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_debug_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",
@@ -28,7 +25,6 @@
 				"CMAKE_BUILD_TYPE": "Debug"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_profile_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",
@@ -39,7 +35,6 @@
 				"CMAKE_BUILD_TYPE": "Profile"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_release_clang_ninja",
 			"inherits": "windows_x86-64_clang_ninja_base",

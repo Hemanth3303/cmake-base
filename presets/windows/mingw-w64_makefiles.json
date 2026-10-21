@@ -3,7 +3,6 @@
 	"include": [
 		"windows_base.json"
 	],
-
 	"configurePresets": [
 		{
 			"name": "windows_x86-64_mingw-w64_makefiles_base",
@@ -16,7 +15,6 @@
 				"CMAKE_CXX_COMPILER": "g++"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_debug_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",
@@ -27,7 +25,6 @@
 				"CMAKE_BUILD_TYPE": "Debug"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_profile_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",
@@ -38,7 +35,6 @@
 				"CMAKE_BUILD_TYPE": "Profile"
 			}
 		},
-
 		{
 			"name": "windows_x86-64_release_mingw-w64_makefiles",
 			"inherits": "windows_x86-64_mingw-w64_makefiles_base",

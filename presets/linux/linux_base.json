@@ -1,9 +1,6 @@
 {
 	"version": 8,
-	"include": [
-
-	],
-
+	"include": [],
 	"configurePresets": [
 		{
 			"name": "linux_base",
@@ -18,7 +15,9 @@
 			},
 			"vendor": {
 				"microsoft.com/VisualStudioSettings/CMake/1.0": {
-					"hostOS": [ "Linux" ]
+					"hostOS": [
+						"Linux"
+					]
 				},
 				"microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
 					"sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
