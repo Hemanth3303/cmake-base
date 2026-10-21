@@ -1,5 +1,7 @@
 # The main file
-# Include this file only after project is defined
+# Include this file only after cmake minimum required and project are both called
+
+include_guard()
 
 set(CMAKE_BASE_CONFIGS Debug Profile Release)
 

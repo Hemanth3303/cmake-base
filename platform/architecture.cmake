@@ -1,6 +1,8 @@
 # Detects TARGET Architecture (x86, ARM, etc)
 # Note: This is NOT the HOST Architecture(CMAKE_HOST_SYSTEM_PROCESSOR)
 
+include_guard()
+
 string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _cmake_base_processor)
 
 if(_cmake_base_processor STREQUAL "")
@@ -36,14 +38,14 @@ else()
 endif()
 
 # Example usage:
-#	cmake_base_target_platform_definitions(Application MY_COOL_APP)
+#	cmake_base_apply_architecture_definitions_to_target(Application MY_COOL_APP)
 # This defines something like MY_COOL_APP_ARCHITECTURE_X86_64=1 for the
 # cmake target(executable, library, etc) named Application.
-function(cmake_base_target_architecture_definitions target prefix)
+function(cmake_base_apply_architecture_definitions_to_target target prefix)
 	if(NOT prefix MATCHES "^[A-Za-z_][A-Za-z0-9_]*$")
 		message(
 			FATAL_ERROR
-			"cmake_base_target_architecture_definitions: invalid prefix '${prefix}' (need C identifier stem)"
+			"cmake_base_apply_architecture_definitions_to_target: invalid prefix '${prefix}' (need C identifier stem)"
 		)
 	endif()
 
@@ -64,7 +66,7 @@ function(cmake_base_target_architecture_definitions target prefix)
 	else()
 		message(
 			FATAL_ERROR
-			"cmake_base_target_architecture_definitions: internal error, _cmake_base_target_architecture='${_cmake_base_target_architecture}'"
+			"cmake_base_apply_architecture_definitions_to_target: internal error, _cmake_base_target_architecture='${_cmake_base_target_architecture}'"
 			)
 	endif()
 	target_compile_definitions("${target}" PRIVATE "${prefix}_ARCHITECTURE_${_suffix}=1")

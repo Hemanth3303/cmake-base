@@ -7,7 +7,7 @@ function(print_var)
 	foreach(var ${ARGN})
 		message("${var} = ${${var}}")
 	endforeach()
-endfunction(print)
+endfunction()
 
 # To print environment variables like PATH
 #
@@ -17,4 +17,4 @@ function(print_env_var)
 	foreach(var ${ARGN})
 		message("${var} = $ENV{${var}}")
 	endforeach()
-endfunction(print_env)
+endfunction()

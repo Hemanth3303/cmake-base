@@ -1,6 +1,8 @@
 # Detects TARGET OS(Windowm Linux, Darwin, etc)
 # Note: This is NOT the HOST OS(CMAKE_HOST_SYSTEM_NAME)
 
+include_guard()
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	set(_cmake_base_target_os "windows")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -28,14 +30,14 @@ else()
 endif()
 
 # Example usage:
-#	cmake_base_target_os_definitions(Application MY_COOL_APP)
+#	cmake_base_apply_os_definitions_to_target(Application MY_COOL_APP)
 # This defines something like MY_COOL_APP_OS_LINUX=1 for the
 # cmake target(executable, library, etc) named Application.
-function(cmake_base_target_os_definitions target prefix)
+function(cmake_base_apply_os_definitions_to_target target prefix)
 	if(NOT prefix MATCHES "^[A-Za-z_][A-Za-z0-9_]*$")
 		message(
 			FATAL_ERROR
-			"cmake_base_target_os_definitions: invalid prefix '${prefix}' (need C identifier stem)"
+			"cmake_base_apply_os_definitions_to_target: invalid prefix '${prefix}' (need C identifier stem)"
 		)
 	endif()
 
