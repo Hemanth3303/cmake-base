@@ -14,6 +14,8 @@ set(_cmake_base_warned_and_unsupported_sanitizers_list "")
 
 include("${CMAKE_CURRENT_LIST_DIR}/sanitizer_support_flags_table.cmake" REQUIRED)
 
+# ----- INTERNAL HELPERS ----- #
+
 function(_cmake_base_sanitizer_is_supported name outval)
 	_cmake_base_sanitizer_compiler_flags("${name}" _compile_flags)
 	if(_compile_flags)
@@ -74,11 +76,11 @@ function(_cmake_base_check_sanitizer_compatibility sanitizer_list)
 endfunction()
 
 function(_cmake_base_sanitizer_get_property_key config outval)
-	set("$outval" "_cmake_base_sanitizers_config_${config}" PARENT_SCOPE)
+	set("${outval}" "_cmake_base_sanitizers_config_${config}" PARENT_SCOPE)
 endfunction()
 
 function(_cmake_base_sanitizer_get_aux_property_key config outval)
-	set("$outval" "_cmake_base_sanitizers_aux_config_${config}" PARENT_SCOPE)
+	set("${outval}" "_cmake_base_sanitizers_aux_config_${config}" PARENT_SCOPE)
 endfunction()
 
 function(_cmake_base_merge_sanitizer_sets old_list new_list outval)
@@ -150,7 +152,7 @@ function(_cmake_base_sanitizer_apply_delta_for_config target config delta_list)
 			target_link_options(
 				"${target}"
 				PRIVATE
-				"$<$<CONFIG:${config}>:${_link_flag}>"
+				"$<$<CONFIG:${config}>:${_linker_flag}>"
 			)
 		endif()
 	endforeach()
@@ -163,7 +165,7 @@ function(_cmake_base_apply_sanitizers_for_config target config supported_sanitiz
 
 	_cmake_base_sanitizer_get_property_key("${config}" _property_key)
 	get_target_property(_existing "${target}" "${_property_key}")
-	if(_existing STREQUAL "_existing-NOTFOUND")
+	if(NOT _existing OR _existing STREQUAL "_existing-NOTFOUND")
 		set(_existing "")
 	endif()
 	if(_existing)
@@ -187,16 +189,25 @@ function(_cmake_base_apply_sanitizers_for_config target config supported_sanitiz
 	endif()
 
 	if(NOT _existing)
-		_cmake_base_apply_aux_flags_for_config("${target}" "${config} ${_merged}")
+		_cmake_base_apply_aux_flags_for_config(
+			"${target}"
+			"${config}"
+			"${_merged}"
+		)
 	endif()
 
 	if(_delta)
-		_cmake_base_sanitizer_apply_delta_for_config("${target} ${config} ${_delta}")
+		_cmake_base_sanitizer_apply_delta_for_config(
+			"${target}"
+			"${config}"
+			"${_delta}"
+		)
 	endif()
 
 	set_target_properties("${target}" PROPERTIES "${_property_key}" "${_merged}")
 endfunction()
 
+# ----- PUBLIC API ----- #
 
 function(cmake_base_apply_sanitizers target)
 	set(_options "")
