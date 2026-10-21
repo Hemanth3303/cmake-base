@@ -14,7 +14,7 @@ Base configs and presets for C and C++ projects using CMake.
   - Debug: `{PREFIX}_DEBUG_BUILD`, `DEBUG`
   - Profile: `{PREFIX}_PROFILE_BUILD`, `NDEBUG`
   - Release: `{PREFIX}_RELEASE_BUILD`, `NDEBUG`
-- build output goes to `build/<os>_<arch>_<compiler>/<Config>/` (example: `build/linux_x86-64_gnu-gcc/Profile/Game`)
+- build output goes to `build/<os>_<arch>_<compiler>/<Config>/` (example: `build/linux_x86_64_gnu-gcc/Profile/Game`)
 - use `cmake --list-presets` to see available presets, then `cmake --preset=<name>` and `cmake --build build`
 
 ## Info
