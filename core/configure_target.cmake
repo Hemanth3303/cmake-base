@@ -87,13 +87,8 @@ function(cmake_base_apply_target_definitions target prefix)
 		PRIVATE
 			"${prefix}"
 			"$<$<CONFIG:Debug>:${prefix}_DEBUG_BUILD>"
-			"$<$<CONFIG:Debug>:DEBUG>"
-
 			"$<$<CONFIG:Profile>:${prefix}_PROFILE_BUILD>"
-			"$<$<CONFIG:Profile>:NDEBUG>"
-
 			"$<$<CONFIG:Release>:${prefix}_RELEASE_BUILD>"
-			"$<$<CONFIG:Release>:NDEBUG>"
 	)
 endfunction()
 
