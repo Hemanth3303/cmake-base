@@ -28,6 +28,10 @@ set(CMAKE_SHARED_LINKER_FLAGS_PROFILE "${CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINF
 set(CMAKE_STATIC_LINKER_FLAGS_PROFILE "${CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO}")
 set(CMAKE_MODULE_LINKER_FLAGS_PROFILE "${CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO}")
 
+# install dir
+# Note: target install related stuff are configured in configure_target.cmake
+set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/install")
+
 # Multi-config safe: $<CONFIG>. Layout: build/<os_arch_compiler>/<Config>/
 set(_cmake_base_out "${CMAKE_BINARY_DIR}/${_cmake_base_target_platform}/$<CONFIG>")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${_cmake_base_out}")

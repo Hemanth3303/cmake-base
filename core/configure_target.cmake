@@ -65,6 +65,28 @@ function(cmake_base_configure_target target)
 		endif()
 
 	endif()
+
+	# only handles the creation of these install dirs.
+	# custom resource folders and stuff like that must be handled by the project itself
+	include(GNUInstallDirs)
+	install(
+		TARGETS "${target}"
+		RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+		ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	)
+
+	# Note to future self:
+	# src/ means copy contents of src to include/
+	# if just src, then it will copy to include/src
+	install(
+		DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src/"
+		DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+		FILES_MATCHING
+			PATTERN "*.h"
+			PATTERN "*.hpp"
+	)
+
 endfunction()
 
 function(cmake_base_apply_target_definitions target prefix)
